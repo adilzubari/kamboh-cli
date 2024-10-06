@@ -9,6 +9,18 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "keywords": [
+    "express",
+    "express-generator",
+    "nodejs",
+    "javascript",
+    "web-development",
+    "project-starter",
+    "cli-tool",
+    "automation",
+    "dev-tools",
+    "developers"
+  ],
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/adilzubari/kamboh-cli.git"
