@@ -6,28 +6,28 @@ on:
       - master
 
 jobs:
-  publish:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: Checkout repository
         uses: actions/checkout@v2
 
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: "16"
+          node-version: "14" # or the version you need
           registry-url: "https://registry.npmjs.org/"
+
+      - name: Configure Git user
+        run: |
+          git config --global user.email "adilzubari852@gmail.com"
+          git config --global user.name "Muhammad Adil Kamboh"
 
       - name: Install dependencies
         run: npm install
 
-      - name: Update version
-        run: npm version patch # or minor/major depending on your need
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Publish to npm
+      - name: Publish to NPM
+        run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: npm publish
