@@ -1,6 +1,6 @@
-# express-delivery
+# Kamboh-CLI
 
-A CLI tool for quickly initializing a new Express.js project with a default configuration.
+A CLI tool to manage all Kamboh products. This tool is designed to speed up the development process.
 
 ## Table of Contents
 
@@ -13,10 +13,10 @@ A CLI tool for quickly initializing a new Express.js project with a default conf
 
 ## Installation
 
-To install the `express-delivery` CLI tool, run the following command:
+To install the `kamboh-cli` CLI tool, run the following command:
 
 ```bash
-npm install -g express-delivery
+npm install -g kamboh-cli
 ```
 
 ## Usage
@@ -24,14 +24,14 @@ npm install -g express-delivery
 After installation, you can create a new Express.js project by running:
 
 ```bash
-express-delivery:init <projectName>
+kamboh express-delivery:init <projectName>
 ```
 
 Replace `<projectName>` with the desired name of your project.
 
 ## Commands
 
-### `express-delivery:init <projectName>`
+### `kamboh express-delivery:init <projectName>`
 
 - **Description:** Initializes a new Express project in a new directory.
 - **Parameters:**
