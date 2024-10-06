@@ -28,6 +28,8 @@ jobs:
         run: npm install
 
       - name: Publish to NPM
-        run: npm publish
+        run: |
+          npm version patch
+          npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
