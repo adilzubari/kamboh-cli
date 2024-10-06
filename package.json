@@ -1,0 +1,26 @@
+{
+  "name": "kamboh-cli",
+  "version": "1.0.0",
+  "description": "Kamboh cli is a compact package to manage products offered by Kamboh.",
+  "main": "cli.js",
+  "bin": {
+    "kamboh": "./cli.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/adilzubari/kamboh-cli.git"
+  },
+  "author": "Muhammad Adil Kamboh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adilzubari/kamboh-cli/issues"
+  },
+  "homepage": "https://github.com/adilzubari/kamboh-cli#readme",
+  "dependencies": {
+    "commander": "^12.1.0",
+    "inquirer": "^8.2.6"
+  }
+}
