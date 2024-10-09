@@ -1,5 +1,5 @@
 {
-  "name": "@adil/kamboh-cli",
+  "name": "@adilzubari/kamboh-cli",
   "version": "0.0.1",
   "description": "Kamboh cli is a compact package to manage products offered by Kamboh.",
   "main": "cli.js",
