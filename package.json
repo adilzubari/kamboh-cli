@@ -1,6 +1,6 @@
 {
-  "name": "kamboh-cli",
-  "version": "1.0.2",
+  "name": "@adil/kamboh-cli",
+  "version": "0.0.1",
   "description": "Kamboh cli is a compact package to manage products offered by Kamboh.",
   "main": "cli.js",
   "bin": {

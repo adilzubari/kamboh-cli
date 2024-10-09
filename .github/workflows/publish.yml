@@ -30,6 +30,7 @@ jobs:
       - name: Publish to NPM
         run: |
           npm version patch
-          npm publish
+          npm publish --access public
+          npm unpublish kamboh-cli --force
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

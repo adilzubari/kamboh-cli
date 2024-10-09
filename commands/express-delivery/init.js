@@ -1,11 +1,20 @@
 const { Command } = require("commander");
 const { execSync: originalExecSync } = require("child_process");
+const fs = require("fs");
 
 // Override execSync to include stdio inheritance
 function execSync(command, options = {}) {
   console.log(`Executing: ${command}`);
   return originalExecSync(command, { stdio: "inherit", ...options }); // Inherit stdio by default
 }
+
+function copyContent(base, target) {
+  const content = fs.readFileSync(base, "utf-8");
+  fs.writeFileSync(target, content);
+}
+
+const copySkeletonContent = (base, target) =>
+  copyContent("skeleton-files/express-delivery/" + base, target);
 
 const init = new Command()
   .command("express-delivery:init <projectName>")
@@ -26,15 +35,37 @@ const init = new Command()
     console.log("Installing Express...");
     execSync("npm install express");
 
-    // Create an index.js file
-    console.log("Creating index.js file...");
+    // Installing packages
+    console.log("Installing Packages...");
     execSync(
-      `echo "const express = require('express');\nconst app = express();\n\napp.get('/', (req, res) => res.send('Hello World!'));\n\napp.listen(3000, () => console.log('Server running on port 3000'));" > index.js`
+      "npm install yup axios body-parser cors dotenv firebase-admin firebase-functions il8n-iso-countries moment moment-timezone uuid stripe"
     );
 
-    // installing nodemon
-    console.log("Installing nodemon...");
-    execSync("npm install nodemon --save-dev");
+    // Create an index.js file
+    console.log("Creating index.js file...");
+    execSync(`echo "{"routes":[]}" > express-delivery.json`);
+    copySkeletonContent("index.js", "index.js");
+
+    // Creating Routes file
+    console.log("Creating routes file...");
+    copySkeletonContent("routes.js", "routes.js");
+
+    // Creating Middlewares
+    console.log("Creating errorHandler Middleware...");
+    copySkeletonContent(
+      "middlewares/errorHandler.js",
+      "middlewares/errorHandler.js"
+    );
+
+    console.log("Creating no found handler Middleware...");
+    copySkeletonContent(
+      "middlewares/notFoundHandler.js",
+      "middlewares/notFoundHandler.js"
+    );
+
+    // installing dev dependencies
+    console.log("Installing dev dependencies...");
+    execSync("npm install nodemon firebase-functions-test --save-dev");
 
     // Add start script to package.json
     console.log("Adding start script to package.json...");
